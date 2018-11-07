@@ -2,8 +2,9 @@ import React from "react";
 import classes from "./coinsInfo.module.css";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { searchIncludes } from '../../Libraries/methods'
 
-const CoinsInfo = ({ coins }) => {
+const CoinsInfo = ({ coins, searchWord}) => {
 
   const displayPlusOrMinusStyle = (dataValue) => {
     return (dataValue > 0) ? classes.plusStyle : classes.miusStyle
@@ -15,9 +16,18 @@ const CoinsInfo = ({ coins }) => {
     : <FontAwesomeIcon className={classes.iconStyle} icon={faCaretDown}/>
   }
 
+  const filteredCoins = () => {
+    if(searchWord){
+      return searchIncludes(coins, searchWord)
+      }else{
+      return coins;
+    }
+  }
+  
+  const coinsData = filteredCoins();
   const displayCoins =
-    coins != null
-      ? coins.map(coin => {
+    (coinsData != null)
+      ? coinsData.map(coin => {
           return (
             <div className={classes.coinDiv} key={coin.id}>
               <p>
@@ -58,7 +68,7 @@ const CoinsInfo = ({ coins }) => {
             </div>
           );
         })
-      : null;
+      : <div>Loading ...</div>;
    
   return <div className={classes.coinOuterWrapper}>{displayCoins}</div>;
 };

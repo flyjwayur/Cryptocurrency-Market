@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import CoinsInfo from './components/CoinsInfo/CoinsInfo'
+import SearchInput from './components/SearchInput/SearchInput'
 
 class App extends Component {
   state = {
-    coins: null
+    coins: null,
+    searchWord : ""
+  }
+
+  handleInput = e => {
+    this.setState({
+      searchWord : e.target.value.toLowerCase()
+    })
   }
 
   componentDidMount () {
@@ -17,13 +25,15 @@ class App extends Component {
   }
   
   componentDidUpdate(){
-    console.log('coins', this.state.coins);
+    //console.log('coins', this.state.coins);
   }
 
   render() {
+    
     return (
       <div className="App">
-      <CoinsInfo coins={this.state.coins}/>
+      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
+      <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord}/>
       </div>
     );
   }
