@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 
 class App extends Component {
   state = {
@@ -7,7 +8,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    const url = 'https://api.coinmarketcap.com/v1/ticker/?limit=2000';
+    const url = 'https://api.coinmarketcap.com/v1/ticker/?limit=500';
     fetch (url).then (response => response.json()).then (coins => {
       this.setState({
         coins
@@ -22,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+      <CoinsInfo coins={this.state.coins}/>
       </div>
     );
   }
