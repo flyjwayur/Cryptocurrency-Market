@@ -2,6 +2,11 @@ import React from "react";
 import classes from "./coinsInfo.module.css";
 
 const CoinsInfo = ({ coins }) => {
+
+  const checkPlusOrMinus = (dataValue) => {
+    return (dataValue > 0) ? classes.plusStyle : classes.miusStyle
+  }
+
   const displayCoins =
     coins != null
       ? coins.map(coin => {
@@ -31,13 +36,13 @@ const CoinsInfo = ({ coins }) => {
                 </p>
                 <p>
                   <span className={classes.infoTitle}>Change % (24h)</span>
-                  <span className={classes.highlightText}>
+                  <span className={checkPlusOrMinus(parseFloat(coin.percent_change_24h))}>
                     {coin.percent_change_24h}
                   </span>
                 </p>
                 <p>
                   <span className={classes.infoTitle}>Change % (7d)</span>
-                  <span className={classes.highlightText}>
+                  <span className={checkPlusOrMinus(parseFloat(coin.percent_change_7d))}>
                     {coin.percent_change_7d}
                   </span>
                 </p>
@@ -46,6 +51,7 @@ const CoinsInfo = ({ coins }) => {
           );
         })
       : null;
+   
   return <div className={classes.coinOuterWrapper}>{displayCoins}</div>;
 };
 
