@@ -1,10 +1,18 @@
 import React from "react";
 import classes from "./coinsInfo.module.css";
+import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CoinsInfo = ({ coins }) => {
 
-  const checkPlusOrMinus = (dataValue) => {
+  const displayPlusOrMinusStyle = (dataValue) => {
     return (dataValue > 0) ? classes.plusStyle : classes.miusStyle
+  }
+
+  const displayPlusOrMinusIcon = (dataValue) => {
+    return (dataValue > 0) ? 
+    <FontAwesomeIcon className={classes.iconStyle} icon={faCaretUp}/> 
+    : <FontAwesomeIcon className={classes.iconStyle} icon={faCaretDown}/>
   }
 
   const displayCoins =
@@ -36,14 +44,14 @@ const CoinsInfo = ({ coins }) => {
                 </p>
                 <p>
                   <span className={classes.infoTitle}>Change % (24h)</span>
-                  <span className={checkPlusOrMinus(parseFloat(coin.percent_change_24h))}>
-                    {coin.percent_change_24h}
+                  <span className={displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h))}>
+                  {displayPlusOrMinusIcon(parseFloat(coin.percent_change_24h))} {coin.percent_change_24h}
                   </span>
                 </p>
                 <p>
                   <span className={classes.infoTitle}>Change % (7d)</span>
-                  <span className={checkPlusOrMinus(parseFloat(coin.percent_change_7d))}>
-                    {coin.percent_change_7d}
+                  <span className={displayPlusOrMinusStyle(parseFloat(coin.percent_change_7d))}>
+                  {displayPlusOrMinusIcon(parseFloat(coin.percent_change_7d))}{coin.percent_change_7d}
                   </span>
                 </p>
               </div>
