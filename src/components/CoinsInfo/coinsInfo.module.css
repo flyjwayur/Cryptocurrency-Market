@@ -7,7 +7,7 @@
 
 .coinDiv{
   background-color : var(--super-dark-grey);
-  color: var(--light-yellow);
+  color: var(--yellow);
   flex-basis: max-content;
   margin: 2rem;
   padding: 1rem;
@@ -31,6 +31,7 @@
 .coinName{
   font-size : 2rem;
   font-weight: 900;
+  color: var(--light-yellow)
 }
 
 .highlightText{
