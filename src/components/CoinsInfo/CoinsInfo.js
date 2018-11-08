@@ -2,10 +2,10 @@ import React from "react";
 import classes from "./coinsInfo.module.css";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { searchIncludes } from "../../Libraries/methods";
+import { searchIncludes, sortCoinbyNameWithOrder } from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
 
-const CoinsInfo = ({ coins, searchWord }) => {
+const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
   const displayPlusOrMinusStyle = dataValue => {
     return dataValue > 0 ? classes.plusStyle : classes.miusStyle;
   };
@@ -26,7 +26,16 @@ const CoinsInfo = ({ coins, searchWord }) => {
     }
   };
 
-  const coinsData = filteredCoins();
+  const sortCoins = () => {
+    if(sortType === "name"){
+      sortCoinbyNameWithOrder(coins, sortOrder);
+    }
+    return coins;
+  }
+
+  //const coinsData = filteredCoins();
+  const coinsData = sortCoins();
+
   const displayCoins =
     coinsData != null ? (
       coinsData.map(coin => {

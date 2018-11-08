@@ -43,20 +43,21 @@ class App extends Component {
   }
   
   componentDidUpdate(){
-    console.log('coins', this.state.coins);
+    //console.log('coins', this.state.coins);
     console.log(this.state.sortType);
     console.log(this.state.sortOrder);
   }
 
   render() {
-    
+    const coins = (this.state.coins !== null) ? this.state.coins.slice() : [];
+
     return (
       <div className="App">
       <Layout>
       <SortInput sortType={this.state.sortType} sortOrder={this.state.sortOrder} handleSortType={this.handleSortType} handleSortOrder={this.handleSortOrder}/>
      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
         <CoinsInfoTitle/>
-        <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord} sortOrder={this.state.sortOrder}/>
+        <CoinsInfo coins={coins} searchWord={this.state.searchWord} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
       </Layout>
       </div>
     );
