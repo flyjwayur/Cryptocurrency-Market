@@ -13,11 +13,11 @@
 }
 
 .contentStyle{
-  flex: 1;
+  flex: 2;
 }
 
 .changeStyle{
-  flex: 0.2;
+  flex: 0.4;
   margin: 0.3rem;
 }
 
@@ -31,6 +31,7 @@
 .highlightPrice{
   font-size : 1.5rem;
   font-weight : 800;
+  margin-right: 3rem;
 }
  
 .plusStyle{
@@ -51,4 +52,15 @@
   font-size: 25px;
   line-height: 25px;
   margin-right: 0.5rem;
+}
+
+.iconNameWrapper{
+  display: flex;
+  align-items: center;
+  margin: 0 4.5rem;
+}
+
+.cryptoIcon{
+  font-size : 1.5rem;
+  margin: 0 1rem;
 }

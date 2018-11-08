@@ -4,6 +4,7 @@ import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
 import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
 
+
 class App extends Component {
   state = {
     coins: null,
@@ -26,7 +27,7 @@ class App extends Component {
   }
   
   componentDidUpdate(){
-    //console.log('coins', this.state.coins);
+    console.log('coins', this.state.coins);
   }
 
   render() {

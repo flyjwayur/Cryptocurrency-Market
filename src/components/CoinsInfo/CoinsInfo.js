@@ -3,6 +3,7 @@ import classes from "./coinsInfo.module.css";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { searchIncludes } from "../../Libraries/methods";
+import CryptoIcon from "react-webfont-cryptocoins";
 
 const CoinsInfo = ({ coins, searchWord }) => {
   const displayPlusOrMinusStyle = dataValue => {
@@ -31,14 +32,25 @@ const CoinsInfo = ({ coins, searchWord }) => {
       coinsData.map(coin => {
         return (
           <div className={classes.coinDiv} key={coin.id}>
-            <p>{coin.rank}</p>
-            <p className={[classes.contentStyle, classes.coinName].join(' ')}>{coin.name}</p>
-            <p className={[classes.contentStyle, classes.highlightPrice].join(' ')}>
+            <div>{coin.rank}</div>
+            <div className={[classes.contentStyle, classes.iconNameWrapper].join(' ')}>
+              <p className={classes.cryptoIcon}>
+                <CryptoIcon coin={coin.symbol} />
+              </p>
+              <p className={classes.coinName}>
+                {coin.name}
+              </p>
+            </div>
+            <div
+              className={[classes.contentStyle, classes.highlightPrice].join(
+                " "
+              )}
+            >
               $ {parseFloat(coin.price_usd).toFixed(3)}
-            </p>
-            <p className={classes.contentStyle}>{coin.symbol}</p>
-            <p className={classes.contentStyle}>{coin.market_cap_usd}</p>
-            <p
+            </div>
+            <div className={classes.contentStyle}>{coin.symbol}</div>
+            <div className={classes.contentStyle}>{coin.market_cap_usd}</div>
+            <div
               className={[
                 displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
                 classes.changeStyle
@@ -46,8 +58,8 @@ const CoinsInfo = ({ coins, searchWord }) => {
             >
               {displayPlusOrMinusIcon(parseFloat(coin.percent_change_24h))}{" "}
               {coin.percent_change_24h}
-            </p>
-            <p
+            </div>
+            <div
               className={[
                 displayPlusOrMinusStyle(parseFloat(coin.percent_change_7d)),
                 classes.changeStyle
@@ -55,7 +67,7 @@ const CoinsInfo = ({ coins, searchWord }) => {
             >
               {displayPlusOrMinusIcon(parseFloat(coin.percent_change_7d))}
               {coin.percent_change_7d}
-            </p>
+            </div>
           </div>
         );
       })
