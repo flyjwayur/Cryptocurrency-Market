@@ -19,18 +19,21 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
   };
 
   const filteredCoins = () => {
+    //If there is a search word, return the searched coins
     if (searchWord) {
       return searchIncludes(coins, searchWord);
+    // Otherwise return all the coins 
     } else {
       return coins;
     }
   };
 
   const sortCoins = () => {
+    const filteredCoinData = filteredCoins();
     if(sortType === "name"){
-      sortCoinbyNameWithOrder(coins, sortOrder);
+      sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
     }
-    return coins;
+    return filteredCoinData;
   }
 
   //const coinsData = filteredCoins();
