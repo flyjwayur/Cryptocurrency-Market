@@ -13,4 +13,7 @@
   --light-grey : #f1f1f1;
   --red : #f93d34;
   --green : #2fbb64;
+  /* font */
+  --font-title : 'Merriweather', 'Josefin Sans';
+  --font-content : 'Montserrat Alternates', 'sans-serif';
 }

@@ -9,6 +9,7 @@
   flex-wrap : wrap;
   align-items: center;
   justify-items: space-around;
+  font-family : var(--font-title);
 }
 
 .infoName, .infoPrice{

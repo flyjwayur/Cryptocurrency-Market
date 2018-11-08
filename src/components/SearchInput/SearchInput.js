@@ -10,7 +10,7 @@ const SearchInput = ({ handleInput, searchWord }) => {
         type="text"
         id="description"
         name="description"
-        placeholder="ex)part time job"
+        placeholder="ex) Bitcoin"
         onChange={handleInput}
         value={searchWord}
         required/>

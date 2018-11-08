@@ -10,6 +10,7 @@
   flex-wrap : wrap;
   justify-content: space-around;
   align-items: center;
+  font-family : var(--font-content);
 }
 
 .contentStyle{
@@ -22,7 +23,7 @@
 }
 
 .coinName{
-  font-size : 2rem;
+  font-size : 1.7rem;
   font-weight: 900;
   color: var(--light-yellow);
   flex: 2;
