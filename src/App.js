@@ -4,16 +4,32 @@ import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
 import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
 import Layout from './Layout/Layout'
+import SortInput from './components/SortInput/SortInput'
+
 
 class App extends Component {
   state = {
     coins: null,
-    searchWord : ""
+    searchWord : "",
+    sortOrder : "ascending",
+    sortType : "name"
   }
 
   handleInput = e => {
     this.setState({
       searchWord : e.target.value.toLowerCase()
+    })
+  }
+
+  handleSortOrder = e =>{
+    this.setState({
+      sortOrder : e.target.value
+    })
+  }
+
+  handleSortType = e => {
+    this.setState({
+      sortType : e.target.value
     })
   }
 
@@ -28,6 +44,8 @@ class App extends Component {
   
   componentDidUpdate(){
     console.log('coins', this.state.coins);
+    console.log(this.state.sortType);
+    console.log(this.state.sortOrder);
   }
 
   render() {
@@ -35,9 +53,10 @@ class App extends Component {
     return (
       <div className="App">
       <Layout>
-      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
+      <SortInput sortType={this.state.sortType} sortOrder={this.state.sortOrder} handleSortType={this.handleSortType} handleSortOrder={this.handleSortOrder}/>
+     <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
         <CoinsInfoTitle/>
-        <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord}/>
+        <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord} sortOrder={this.state.sortOrder}/>
       </Layout>
       </div>
     );
