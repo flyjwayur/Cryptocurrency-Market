@@ -12,7 +12,7 @@ class App extends Component {
     coins: null,
     searchWord : "",
     sortOrder : "ascending",
-    sortType : "name"
+    sortType : "rank"
   }
 
   handleInput = e => {

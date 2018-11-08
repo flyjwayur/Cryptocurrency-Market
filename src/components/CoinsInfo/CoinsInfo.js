@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./coinsInfo.module.css";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { searchIncludes, sortCoinbyNameWithOrder, sortCoinbyPriceWithOrder } from "../../Libraries/methods";
+import { searchIncludes, sortCoinbyNameWithOrder, sortCoinbyPriceWithOrder, sortCoinbyRankWithOrder } from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
 
 const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
@@ -33,8 +33,13 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
     if(sortType === "name"){
       sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
     }
+    
     if(sortType === "price"){
       sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
+    }
+
+    if(sortType === "rank"){
+      sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
     }
     return filteredCoinData;
   }

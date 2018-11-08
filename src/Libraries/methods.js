@@ -37,3 +37,19 @@ export const sortCoinbyPriceWithOrder = (coins, sortOrder) => {
           return  0; 
   });
 }
+
+export const sortCoinbyRankWithOrder = (coins, sortOrder) => {
+
+  const order = (sortOrder === "ascending") ? 1 : -1;
+  return coins.sort((a, b) => {
+      let priceA = parseFloat(a.rank)// ignore upper and lowercase
+      let priceB = parseFloat(b.rank)
+      if(priceA < priceB) {
+          return -1 * order;
+      }
+      if (priceA > priceB){
+          return 1 * order;
+      }      
+          return  0; 
+  });
+}
