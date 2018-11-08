@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
+import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
 
 class App extends Component {
   state = {
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <div className="App">
       <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
+      <CoinsInfoTitle/>
       <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord}/>
       </div>
     );

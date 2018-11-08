@@ -5,10 +5,11 @@
 :root{
   /* color */
   --black :#010101;
-  --super-dark-grey : #181818;
+  --super-dark-grey: #181818;
+  --dark-grey : #5a5a5a;
   --light-yellow :rgb(255, 255, 206);
   --yellow :#ffff33;
-  --middel-grey : #d3d3d3;
+  --middle-grey : #d3d3d3;
   --light-grey : #f1f1f1;
   --red : #f93d34;
   --green : #2fbb64;

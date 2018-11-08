@@ -1,0 +1,42 @@
+.coinTitleDiv{
+  background-color : var(--super-dark-grey);
+  color: var(--light-grey);
+  border-radius : 10px; 
+  font-weight: 700;
+  box-shadow: 2px 2px 2px 2px var(--middle-grey);
+  margin : 1.2rem 5rem;
+  display: flex;
+  flex-wrap : wrap;
+  align-items: center;
+  justify-items: space-around;
+}
+
+.infoName, .infoPrice{
+  font-weight: 800;
+  color : var(--light-grey);
+  flex: 0.8; 
+}
+
+.infoSymbol, .infoMarketCap{
+  flex: 0.5;
+}
+
+.infoTitle{
+  flex: 0.2;
+  text-align: center;
+}
+
+.infoRank{
+  flex: 0.2;
+  margin-left: 1rem;
+}
+
+.infoChange{
+  flex: 0.2;
+  margin-right: 2rem;
+  margin-left: 0.1rem;
+}
+
+span{
+  color: var(--middle-grey);
+}
