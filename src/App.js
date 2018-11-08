@@ -3,7 +3,7 @@ import './App.css';
 import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
 import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
-
+import Layout from './Layout/Layout'
 
 class App extends Component {
   state = {
@@ -34,9 +34,11 @@ class App extends Component {
     
     return (
       <div className="App">
+      <Layout>
       <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
-      <CoinsInfoTitle/>
-      <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord}/>
+        <CoinsInfoTitle/>
+        <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord}/>
+      </Layout>
       </div>
     );
   }

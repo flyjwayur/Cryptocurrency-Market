@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import classes from './searchInput.module.css'
 
 const SearchInput = ({ handleInput, searchWord }) => {
 
   return (
     <div>
       <label htmlFor="searchWord"></label>
-      <input
+      <input className={classes.searchInput}
         type="text"
         id="description"
         name="description"
@@ -16,10 +16,6 @@ const SearchInput = ({ handleInput, searchWord }) => {
         required/>
     </div>
   )
-}
-
-SearchInput.propTypes = {
-
 }
 
 export default SearchInput
