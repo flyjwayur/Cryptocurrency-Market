@@ -30,16 +30,16 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
 
   const sortCoins = () => {
     const filteredCoinData = filteredCoins();
-    if(sortType === "name"){
-      sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
-    }
-    
-    if(sortType === "price"){
-      sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
-    }
-
-    if(sortType === "rank"){
-      sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
+    switch (sortType){
+      case 'rank':
+        sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
+        break;
+      case 'name':
+        sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
+        break;
+      case 'price':
+        sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
+        break;
     }
     return filteredCoinData;
   }
