@@ -32,16 +32,12 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
     const filteredCoinData = filteredCoins();
     switch (sortType){
       case 'rank':
-        sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
-        break;
+        return sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
       case 'name':
-        sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
-        break;
+        return sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
       case 'price':
-        sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
-        break;
+        return sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
     }
-    return filteredCoinData;
   }
 
   //const coinsData = filteredCoins();
