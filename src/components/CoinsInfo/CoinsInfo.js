@@ -47,55 +47,63 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
   //const coinsData = filteredCoins();
   const coinsData = sortCoins();
 
-  const displayCoins =
-    coinsData != null ? (
-      coinsData.map(coin => {
-        return (
-          <div className={classes.coinDiv} key={coin.id}>
-            <div>{coin.rank}</div>
-            <div className={[classes.contentStyle, classes.iconNameWrapper].join(' ')}>
-              <p className={classes.cryptoIcon}>
-                <CryptoIcon coin={coin.symbol} />
-              </p>
-              <p className={classes.coinName}>
-                {coin.name}
-              </p>
+  const displayCoins = () => {
+    if (coinsData !== null && coinsData.length === 0) {
+      return <div>No results!</div>
+    } else if (coinsData !== null) {
+      return (
+        coinsData.map(coin => {
+          return (
+            <div className={classes.coinDiv} key={coin.id}>
+              <div>{coin.rank}</div>
+              <div className={[classes.contentStyle, classes.iconNameWrapper].join(' ')}>
+                <p className={classes.cryptoIcon}>
+                  <CryptoIcon coin={coin.symbol} />
+                </p>
+                <p className={classes.coinName}>
+                  {coin.name}
+                </p>
+              </div>
+              <div
+                className={[classes.contentStyle, classes.highlightPrice].join(
+                  " "
+                )}
+              >
+                $ {parseFloat(coin.price_usd).toFixed(3)}
+              </div>
+              <div className={classes.contentStyle}>{coin.symbol}</div>
+              <div className={classes.contentStyle}>{coin.market_cap_usd}</div>
+              <div
+                className={[
+                  displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
+                  classes.changeStyle
+                ].join(" ")}
+              >
+                {displayPlusOrMinusIcon(parseFloat(coin.percent_change_24h))}{" "}
+                {coin.percent_change_24h}
+              </div>
+              <div
+                className={[
+                  displayPlusOrMinusStyle(parseFloat(coin.percent_change_7d)),
+                  classes.changeStyle
+                ].join(" ")}
+              >
+                {displayPlusOrMinusIcon(parseFloat(coin.percent_change_7d))}
+                {coin.percent_change_7d}
+              </div>
             </div>
-            <div
-              className={[classes.contentStyle, classes.highlightPrice].join(
-                " "
-              )}
-            >
-              $ {parseFloat(coin.price_usd).toFixed(3)}
-            </div>
-            <div className={classes.contentStyle}>{coin.symbol}</div>
-            <div className={classes.contentStyle}>{coin.market_cap_usd}</div>
-            <div
-              className={[
-                displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
-                classes.changeStyle
-              ].join(" ")}
-            >
-              {displayPlusOrMinusIcon(parseFloat(coin.percent_change_24h))}{" "}
-              {coin.percent_change_24h}
-            </div>
-            <div
-              className={[
-                displayPlusOrMinusStyle(parseFloat(coin.percent_change_7d)),
-                classes.changeStyle
-              ].join(" ")}
-            >
-              {displayPlusOrMinusIcon(parseFloat(coin.percent_change_7d))}
-              {coin.percent_change_7d}
-            </div>
-          </div>
-        );
-      })
-    ) : (
-      <div>Loading ...</div>
-    );
+          );
+        })
+      );
+    } else {
+      return (
+        <div>Loading ...</div>
+      );
+    }
+  }
+    
 
-  return <div className={classes.coinOuterWrapper}>{displayCoins}</div>;
+  return <div className={classes.coinOuterWrapper}>{displayCoins()}</div>;
 };
 
 export default CoinsInfo;
