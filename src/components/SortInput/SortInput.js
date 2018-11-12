@@ -25,7 +25,7 @@ const SortInput = ({ sortType, sortOrder,  handleSortType, handleSortOrder }) =>
         <label className={classes.sortTypeName}>
           {sortTypeConfig.lableName}
         </label>
-        <select value={sortType} onChange={handleSortType}>
+        <select className={classes.selectOption} value={sortType} onChange={handleSortType}>
           {sortTypeConfig.options.map((element, index) => {
             return (
               <option key={index} value={element.value}>
@@ -40,7 +40,7 @@ const SortInput = ({ sortType, sortOrder,  handleSortType, handleSortOrder }) =>
         <label className={classes.sortTypeName}>
           {sortOrderConfig.lableName}
         </label>
-        <select value={sortOrder} onChange={handleSortOrder}>
+        <select className={classes.selectOption} value={sortOrder} onChange={handleSortOrder}>
           {sortOrderConfig.options.map((element, index) => {
             return (
               <option key={index} value={element.value}>

@@ -37,6 +37,8 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
         return sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
       case 'price':
         return sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
+      default : 
+      sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
     }
   }
 
