@@ -10,6 +10,23 @@
   align-items: center;
   justify-items: space-around;
   font-family : var(--font-title);
+  font-size: 1rem;
+}
+
+.titleBtnStyle{
+  padding: 1.5rem 0.7rem;
+  width: 80%;
+  font-size: 1rem;
+  background-color : var(--super-dark-grey);
+  border: none;
+  color : var(--light-grey);
+  font-family : var(--font-title);
+  outline : none;
+}
+
+.titleBtnStyle:focus{
+  background-color : var(--light-grey);
+  color: var(--super-dark-grey);
 }
 
 .infoName, .infoPrice{
@@ -28,7 +45,7 @@
 }
 
 .infoRank{
-  flex: 0.2;
+  flex: 0.3;
   margin-left: 1rem;
 }
 
@@ -40,4 +57,11 @@
 
 span{
   color: var(--middle-grey);
+}
+
+.iconStyle{
+  font-size : 1.5rem;
+  padding-left: 1rem;
+  position : relative;
+  top: calc(50% - 0.75rem);
 }

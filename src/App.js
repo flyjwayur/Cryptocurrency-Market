@@ -4,14 +4,13 @@ import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
 import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
 import Layout from './Layout/Layout'
-import SortInput from './components/SortInput/SortInput'
 
 
 class App extends Component {
   state = {
     coins: null,
     searchWord : "",
-    sortOrder : "ascending",
+    sortOrder : true,
     sortType : "rank"
   }
 
@@ -21,43 +20,48 @@ class App extends Component {
     })
   }
 
-  handleSortOrder = e =>{
-    this.setState({
-      sortOrder : e.target.value
-    })
-  }
+  
+  handleClickTypeSort = (sortType, sortOrder) => {
 
-  handleSortType = e => {
+    console.log(sortType);
+    console.log(sortOrder);
     this.setState({
-      sortType : e.target.value
+      sortType
+    })
+
+    this.setState({
+      sortOrder
     })
   }
 
   componentDidMount () {
     const url = 'https://api.coinmarketcap.com/v1/ticker/?limit=500';
     fetch (url).then (response => response.json()).then (coins => {
-      this.setState({
-        coins
-      });
+
+      setTimeout(()=>{
+        this.setState({
+          coins
+        });
+      },2000)
+    
     });
   }
   
   componentDidUpdate(){
-    //console.log('coins', this.state.coins);
     console.log(this.state.sortType);
     console.log(this.state.sortOrder);
   }
 
   render() {
     const coins = (this.state.coins !== null) ? this.state.coins.slice() : [];
+  
 
     return (
       <div className="App">
       <Layout>
-      <SortInput sortType={this.state.sortType} sortOrder={this.state.sortOrder} handleSortType={this.handleSortType} handleSortOrder={this.handleSortOrder}/>
      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
-        <CoinsInfoTitle/>
-        <CoinsInfo coins={coins} searchWord={this.state.searchWord} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
+        <CoinsInfoTitle handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
+        <CoinsInfo coins={coins} searchWord={this.state.searchWord} handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
       </Layout>
       </div>
     );

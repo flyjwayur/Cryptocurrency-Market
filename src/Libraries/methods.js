@@ -6,7 +6,7 @@ export const searchIncludes = (arr, word) => {
 
 export const sortCoinbyNameWithOrder = (coins, sortOrder) => {
 
-  const order = (sortOrder === "ascending") ? 1 : -1;
+  const order = (sortOrder === true) ? 1 : -1;
   return [...coins].sort((a, b) => {
       let nameA = a.name.toLowerCase(); // ignore upper and lowercase
       let nameB = b.name.toLowerCase();
@@ -25,7 +25,7 @@ export const sortCoinbyNameWithOrder = (coins, sortOrder) => {
 
 export const sortCoinbyPriceWithOrder = (coins, sortOrder) => {
 
-  const order = (sortOrder === "ascending") ? 1 : -1;
+  const order = (sortOrder === true) ? 1 : -1;
   return coins.sort((a, b) => {
       let priceA = parseFloat(a.price_usd)// ignore upper and lowercase
       let priceB = parseFloat(b.price_usd)
@@ -41,7 +41,7 @@ export const sortCoinbyPriceWithOrder = (coins, sortOrder) => {
 
 export const sortCoinbyRankWithOrder = (coins, sortOrder) => {
 
-  const order = (sortOrder === "ascending") ? 1 : -1;
+  const order = (sortOrder === true) ? 1 : -1;
   return coins.sort((a, b) => {
       let priceA = parseFloat(a.rank)// ignore upper and lowercase
       let priceB = parseFloat(b.rank)
