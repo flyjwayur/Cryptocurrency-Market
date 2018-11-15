@@ -2,7 +2,12 @@ import React from "react";
 import classes from "./coinsInfo.module.css";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { searchIncludes, sortCoinbyNameWithOrder, sortCoinbyPriceWithOrder, sortCoinbyRankWithOrder } from "../../Libraries/methods";
+import {
+  searchIncludes,
+  sortCoinbyNameWithOrder,
+  sortCoinbyPriceWithOrder,
+  sortCoinbyRankWithOrder
+} from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
 
 const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
@@ -18,49 +23,52 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
     );
   };
 
-  const filteredCoins = () => {
+  const filteredCoins = coinsForFilterSort => {
     //If there is a search word, return the searched coins
     if (searchWord) {
-      return searchIncludes(coins, searchWord);
-    // Otherwise return all the coins 
+      return searchIncludes(coinsForFilterSort, searchWord);
+      // Otherwise return all the coins
     } else {
-      return coins;
+      return coinsForFilterSort;
     }
   };
 
-  const sortCoins = () => {
-    const filteredCoinData = filteredCoins();
-    switch (sortType){
-      case 'rank':
+  const sortCoins = filteredCoinData => {
+    switch (sortType) {
+      case "rank":
         return sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
-      case 'name':
+      case "name":
         return sortCoinbyNameWithOrder(filteredCoinData, sortOrder);
-      case 'price':
+      case "price":
         return sortCoinbyPriceWithOrder(filteredCoinData, sortOrder);
-      default : 
-      sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
+      default:
+        sortCoinbyRankWithOrder(filteredCoinData, sortOrder);
     }
-  }
-
-  //const coinsData = filteredCoins();
-  const coinsData = sortCoins();
+  };
 
   const displayCoins = () => {
-    if (coinsData !== null && coinsData.length === 0) {
-      return <div>No results!</div>
-    } else if (coinsData !== null) {
-      return (
-        coinsData.map(coin => {
+    if (coins !== null) {
+      let coinsForFilterSort = coins.slice();
+      console.log("copy of coin", coinsForFilterSort);
+      const filteredOrSortedcoins = sortCoins(
+        filteredCoins(coinsForFilterSort)
+      );
+      console.log("filteredOrSorted coin", filteredOrSortedcoins);
+
+      if (filteredOrSortedcoins.length > 0) {
+        return filteredOrSortedcoins.map(coin => {
           return (
             <div className={classes.coinDiv} key={coin.id}>
               <div>{coin.rank}</div>
-              <div className={[classes.contentStyle, classes.iconNameWrapper].join(' ')}>
+              <div
+                className={[classes.contentStyle, classes.iconNameWrapper].join(
+                  " "
+                )}
+              >
                 <p className={classes.cryptoIcon}>
                   <CryptoIcon coin={coin.symbol} />
                 </p>
-                <p className={classes.coinName}>
-                  {coin.name}
-                </p>
+                <p className={classes.coinName}>{coin.name}</p>
               </div>
               <div
                 className={[classes.contentStyle, classes.highlightPrice].join(
@@ -91,16 +99,14 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
               </div>
             </div>
           );
-        })
-      );
+        });
+      } else {
+        return <div>No results!</div>;
+      }
     } else {
-      return (
-        <div>Loading ...</div>
-      );
+      return <div>Loading...</div>;
     }
-  }
-    
-
+  };
   return <div className={classes.coinOuterWrapper}>{displayCoins()}</div>;
 };
 

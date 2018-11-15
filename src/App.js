@@ -53,15 +53,13 @@ class App extends Component {
   }
 
   render() {
-    const coins = (this.state.coins !== null) ? this.state.coins.slice() : [];
-  
 
     return (
       <div className="App">
       <Layout>
      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
         <CoinsInfoTitle handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
-        <CoinsInfo coins={coins} searchWord={this.state.searchWord} handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
+        <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord} handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
       </Layout>
       </div>
     );

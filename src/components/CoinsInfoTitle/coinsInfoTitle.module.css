@@ -32,7 +32,7 @@
 .infoName, .infoPrice{
   font-weight: 800;
   color : var(--light-grey);
-  flex: 0.8; 
+  flex: 0.65; 
 }
 
 .infoSymbol, .infoMarketCap{
