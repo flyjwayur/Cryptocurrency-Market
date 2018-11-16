@@ -6,7 +6,8 @@ import {
   searchIncludes,
   sortCoinbyNameWithOrder,
   sortCoinbyPriceWithOrder,
-  sortCoinbyRankWithOrder
+  sortCoinbyRankWithOrder,
+  giveCommaEverythreeDigits
 } from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
 
@@ -78,7 +79,7 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
                 $ {parseFloat(coin.price_usd).toFixed(3)}
               </div>
               <div className={classes.contentStyle}>{coin.symbol}</div>
-              <div className={classes.contentStyle}>{coin.market_cap_usd}</div>
+              <div className={classes.contentStyle}>{giveCommaEverythreeDigits(coin.market_cap_usd)}</div>
               <div
                 className={[
                   displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
