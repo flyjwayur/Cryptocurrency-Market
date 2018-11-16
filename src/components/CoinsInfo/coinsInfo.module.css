@@ -1,67 +1,74 @@
-.coinDiv{
-  background-image: linear-gradient(to left top, #3d3d3d, #444444, #4b4b4b, #535353, #5a5a5a);
-  border-radius : 10px; 
+.coinDiv {
+  background-image: linear-gradient(
+    to left top,
+    #3d3d3d,
+    #444444,
+    #4b4b4b,
+    #535353,
+    #5a5a5a
+  );
+  border-radius: 10px;
   font-weight: 700;
   box-shadow: 2px 2px 2px 2px var(--middle-grey);
-  margin : 1.2rem 5rem;
+  margin: 1.2rem 5rem;
   padding: 0.1rem 3rem;
   display: flex;
-  flex-wrap : wrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  font-family : var(--font-content);
-  color : var(--light-yellow);
+  font-family: var(--font-content);
+  color: var(--light-yellow);
 }
 
-.contentStyle{
+.contentStyle {
   flex: 2;
 }
 
-.changeStyle{
+.changeStyle {
   flex: 0.4;
   margin: 0.3rem;
 }
 
-.coinName{
-  font-size : 1.7rem;
+.coinName {
+  font-size: 1.7rem;
   font-weight: 900;
   color: var(--light-grey);
   flex: 2;
 }
 
-.highlightPrice{
-  font-size : 1.5rem;
-  font-weight : 800;
+.highlightPrice {
+  font-size: 1.5rem;
+  font-weight: 800;
   margin-right: 3rem;
 }
- 
-.plusStyle{
-  background-color : var(--green);
-  color : var(--light-grey);
+
+.plusStyle {
+  background-color: var(--green);
+  color: var(--light-grey);
   padding: 0.7rem;
   border-radius: 10px;
 }
 
-.miusStyle{
+.miusStyle {
   background-color: var(--red);
-  color : var(--light-grey);
+  color: var(--light-grey);
   padding: 0.7rem;
   border-radius: 10px;
 }
 
-.iconStyle{
+.iconStyle {
   font-size: 25px;
   line-height: 25px;
   margin-right: 0.5rem;
 }
 
-.iconNameWrapper{
+.iconNameWrapper {
   display: flex;
   align-items: center;
   margin: 0 4.5rem;
 }
 
-.cryptoIcon{
-  font-size : 1.5rem;
+.cryptoIcon {
+  font-size: 1.5rem;
   margin: 0 1rem;
 }

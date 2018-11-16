@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./coinsInfoTitle.module.css";
 import {
-  faSort,
   faSortUp,
   faSortDown
 } from "@fortawesome/free-solid-svg-icons";
@@ -9,38 +8,38 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
 
-  let sortIcon = sortOrder ? faSortUp : faSortDown
+  let sortIconUp = (sortOrder === true) ? classes.clicked : "" ;
+  let sortIconDown = (sortOrder === false) ? classes.clicked : "" ;
  
   return (
     <div className={classes.coinTitleDiv}>
       <button 
         onClick={() => handleClickTypeSort("rank", !sortOrder)}
         className={[classes.titleBtnStyle, classes.infoRank].join(" ")}
-      >
-        Rank
+      > <span>Rank</span>
       {(sortType === "rank") ? 
-      <FontAwesomeIcon className={classes.iconStyle} icon = {sortIcon} /> :
-      <FontAwesomeIcon className={classes.iconStyle} icon = {faSort} />}
+      (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
+      (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
       <span>|</span>
       <button
         onClick={() => handleClickTypeSort("name", !sortOrder)}
         className={[classes.titleBtnStyle, classes.infoName].join(" ")}
       >
-        Name
+        <span>Name</span>
         {(sortType === "name") ? 
-        <FontAwesomeIcon className={classes.iconStyle} icon = {sortIcon} /> :
-        <FontAwesomeIcon className={classes.iconStyle} icon = {faSort} />}
+        (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
+        (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
       <span>|</span>
       <button
         onClick={() => handleClickTypeSort("price", !sortOrder)}
         className={[classes.titleBtnStyle, classes.infoPrice].join(" ")}
       >
-        Price
+        <span>Price</span>
         {(sortType === "price") ? 
-        <FontAwesomeIcon className={classes.iconStyle} icon = {sortIcon} /> :
-        <FontAwesomeIcon className={classes.iconStyle} icon = {faSort} />}
+        (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
+        (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
       <span>|</span>
       <p className={classes.infoSymbol}>Symbol</p>

@@ -16,17 +16,12 @@
 .titleBtnStyle{
   padding: 1.5rem 0.7rem;
   width: 80%;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color : var(--super-dark-grey);
   border: none;
   color : var(--light-grey);
   font-family : var(--font-title);
   outline : none;
-}
-
-.titleBtnStyle:focus{
-  background-color : var(--light-grey);
-  color: var(--super-dark-grey);
 }
 
 .infoName, .infoPrice{
@@ -59,9 +54,23 @@ span{
   color: var(--middle-grey);
 }
 
+.upDownIcon{
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  vertical-align: middle;
+}
+
 .iconStyle{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-left : 0.5rem;
+}
+
+.clicked{
+  color: var(--yellow);
   font-size : 1.5rem;
-  padding-left: 1rem;
-  position : relative;
-  top: calc(50% - 0.75rem);
 }
