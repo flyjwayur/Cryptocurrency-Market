@@ -10,9 +10,10 @@ import {
   giveCommaEverythreeDigits
 } from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
-import Spinner from '../UI/Spinner/Spinner';
+import Spinner from "../UI/Spinner/Spinner";
+import CoinsInfoTitle from "../CoinsInfoTitle/CoinsInfoTitle";
 
-const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
+const CoinsInfo = ({ coins, searchWord, sortOrder, sortType, handleClickTypeSort }) => {
   const displayPlusOrMinusStyle = dataValue => {
     return dataValue > 0 ? classes.plusStyle : classes.miusStyle;
   };
@@ -58,17 +59,18 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
       console.log("filteredOrSorted coin", filteredOrSortedcoins);
 
       if (filteredOrSortedcoins.length > 0) {
-        return filteredOrSortedcoins.map(coin => {
+        let coinsDisplay = filteredOrSortedcoins.map(coin => {
           return (
             <div className={classes.coinContainer} key={coin.id}>
               <div className={classes.rank}>{coin.rank}</div>
               <div
-                className={[classes.fromRankToCap, classes.iconNameContainer].join(
-                  " "
-                )}
+                className={[
+                  classes.fromRankToCap,
+                  classes.iconNameContainer
+                ].join(" ")}
               >
-                  <CryptoIcon className={classes.cryptoIcon} coin={coin.symbol}/>
-                  <p className={classes.coinName}>{coin.name}</p>
+                <CryptoIcon className={classes.cryptoIcon} coin={coin.symbol} />
+                <p className={classes.coinName}>{coin.name}</p>
               </div>
               <div
                 className={[classes.fromRankToCap, classes.highlightPrice].join(
@@ -78,7 +80,9 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
                 $ {parseFloat(coin.price_usd).toFixed(3)}
               </div>
               <div className={classes.fromRankToCap}>{coin.symbol}</div>
-              <div className={classes.fromRankToCap}>{giveCommaEverythreeDigits(coin.market_cap_usd)}</div>
+              <div className={classes.fromRankToCap}>
+                {giveCommaEverythreeDigits(coin.market_cap_usd)}
+              </div>
               <div
                 className={[
                   displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
@@ -100,6 +104,16 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
             </div>
           );
         });
+        return (
+          <div>
+            <CoinsInfoTitle
+              handleClickTypeSort={handleClickTypeSort}
+              sortOrder={sortOrder}
+              sortType={sortType}
+            />
+            {coinsDisplay}
+          </div>
+        );
       } else {
         return <div>No results!</div>;
       }
@@ -107,11 +121,7 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
       return <Spinner />;
     }
   };
-  return (
-    <div className={classes.coinOuterWrapper}>
-      {displayCoins()}
-    </div>
-  )
+  return <div className={classes.coinOuterWrapper}>{displayCoins()}</div>;
 };
 
 export default CoinsInfo;

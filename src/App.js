@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import CoinsInfo from './components/CoinsInfo/CoinsInfo'
 import SearchInput from './components/SearchInput/SearchInput'
-import CoinsInfoTitle from './components/CoinsInfoTitle/CoinsInfoTitle'
 import Layout from './Layout/Layout'
 
 
@@ -58,7 +57,6 @@ class App extends Component {
       <div className="App">
       <Layout>
      <SearchInput handleInput={this.handleInput} searchWord={this.searchWord}/>
-        <CoinsInfoTitle handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
         <CoinsInfo coins={this.state.coins} searchWord={this.state.searchWord} handleClickTypeSort={this.handleClickTypeSort} sortOrder={this.state.sortOrder} sortType={this.state.sortType}/>
       </Layout>
       </div>
