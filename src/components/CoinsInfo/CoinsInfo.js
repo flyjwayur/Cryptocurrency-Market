@@ -19,9 +19,9 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
 
   const displayPlusOrMinusIcon = dataValue => {
     return dataValue > 0 ? (
-      <FontAwesomeIcon className={classes.iconStyle} icon={faCaretUp} />
+      <FontAwesomeIcon className={classes.upDownIcon} icon={faCaretUp} />
     ) : (
-      <FontAwesomeIcon className={classes.iconStyle} icon={faCaretDown} />
+      <FontAwesomeIcon className={classes.upDownIcon} icon={faCaretDown} />
     );
   };
 
@@ -60,31 +60,29 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
       if (filteredOrSortedcoins.length > 0) {
         return filteredOrSortedcoins.map(coin => {
           return (
-            <div className={classes.coinDiv} key={coin.id}>
-              <div>{coin.rank}</div>
+            <div className={classes.coinContainer} key={coin.id}>
+              <div className={classes.rank}>{coin.rank}</div>
               <div
-                className={[classes.contentStyle, classes.iconNameWrapper].join(
+                className={[classes.fromRankToCap, classes.iconNameContainer].join(
                   " "
                 )}
               >
-                <p className={classes.cryptoIcon}>
-                  <CryptoIcon coin={coin.symbol} />
-                </p>
-                <p className={classes.coinName}>{coin.name}</p>
+                  <CryptoIcon className={classes.cryptoIcon} coin={coin.symbol}/>
+                  <p className={classes.coinName}>{coin.name}</p>
               </div>
               <div
-                className={[classes.contentStyle, classes.highlightPrice].join(
+                className={[classes.fromRankToCap, classes.highlightPrice].join(
                   " "
                 )}
               >
                 $ {parseFloat(coin.price_usd).toFixed(3)}
               </div>
-              <div className={classes.contentStyle}>{coin.symbol}</div>
-              <div className={classes.contentStyle}>{giveCommaEverythreeDigits(coin.market_cap_usd)}</div>
+              <div className={classes.fromRankToCap}>{coin.symbol}</div>
+              <div className={classes.fromRankToCap}>{giveCommaEverythreeDigits(coin.market_cap_usd)}</div>
               <div
                 className={[
                   displayPlusOrMinusStyle(parseFloat(coin.percent_change_24h)),
-                  classes.changeStyle
+                  classes.changes
                 ].join(" ")}
               >
                 {displayPlusOrMinusIcon(parseFloat(coin.percent_change_24h))}{" "}
@@ -93,7 +91,7 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
               <div
                 className={[
                   displayPlusOrMinusStyle(parseFloat(coin.percent_change_7d)),
-                  classes.changeStyle
+                  classes.changes
                 ].join(" ")}
               >
                 {displayPlusOrMinusIcon(parseFloat(coin.percent_change_7d))}

@@ -24,7 +24,7 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
       (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
       (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <button
         onClick={() => handleClickTypeSort("name", !sortOrder)}
         className={[classes.titleBtnStyle, classes.infoName, hightlightName].join(" ")}
@@ -34,7 +34,7 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
         (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
         (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <button
         onClick={() => handleClickTypeSort("price", !sortOrder)}
         className={[classes.titleBtnStyle, classes.infoPrice, hightlightPrice].join(" ")}
@@ -44,13 +44,13 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
         (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
         (<div className={classes.upDownIcon}><FontAwesomeIcon className={classes.iconStyle} icon = {faSortUp} /> <FontAwesomeIcon className={classes.iconStyle} icon = {faSortDown} /></div>)}
       </button>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <p className={classes.infoSymbol}>Symbol</p>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <p className={classes.infoMarketCap}>Market Cap</p>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <p className={classes.infoChange}>Change % (24h)</p>
-      <span>|</span>
+      <span className={classes.separateLine}>|</span>
       <p className={classes.infoChange}>Change % (7d)</p>
     </div>
   );

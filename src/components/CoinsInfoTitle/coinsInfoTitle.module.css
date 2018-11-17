@@ -74,3 +74,68 @@
   color: var(--green);
   font-size : 1.5rem;
 }
+
+/* Media queries */
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) { 
+  .coinTitleDiv{
+    position: fixed;
+    left: 0;
+    margin : 1.2rem 0;
+    display: flex;
+    flex-direction : column;
+    font-size : 1.1rem;
+    box-shadow: 0px 1px 1px 0.2px var(--middle-grey);
+  }
+
+  .infoName, .infoPrice, .infoSymbol, .infoMarketCap, .infoRank, .infoChange{
+    font-weight: 800;
+    flex: 0.2;
+  }
+
+  .titleBtnStyle{
+    font-size: 1.1rem;
+    background-color: var(--super-dark-grey);
+    font-family : var(--font-title);
+    color : var(--light-grey);
+    outline : none;
+    display: flex;
+    border-top : 1px solid var(--light-grey);
+    padding: 20px;
+  }
+
+  .upDownIcon{
+    flex: 1;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    vertical-align: middle;
+  }
+
+  .iconStyle{
+    width: 100%;
+    text-align: center;
+    margin-left : 0.5rem;
+  }
+
+  .separateLine{
+    display: none;
+  }
+
+  .infoMarketCap, .infoRank, .infoChange{
+    margin : 1rem auto;
+  }
+
+  .clicked{
+    color: var(--green);
+    font-size : 1.2rem;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .titleBtnStyle{
+    padding: 15px;
+  }
+}
