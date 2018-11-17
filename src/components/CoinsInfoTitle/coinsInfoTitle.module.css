@@ -17,16 +17,16 @@
   padding: 1.5rem 0.7rem;
   width: 80%;
   font-size: 1.5rem;
-  background-color : var(--super-dark-grey);
+  background-color: var(--super-dark-grey);
   border: none;
-  color : var(--light-grey);
   font-family : var(--font-title);
+  color : var(--light-grey);
   outline : none;
+  margin-bottom : 0.5rem;
 }
 
 .infoName, .infoPrice{
   font-weight: 800;
-  color : var(--light-grey);
   flex: 0.65; 
 }
 
@@ -50,10 +50,6 @@
   margin-left: 0.1rem;
 }
 
-span{
-  color: var(--middle-grey);
-}
-
 .upDownIcon{
   position: relative;
   display: inline-block;
@@ -70,7 +66,11 @@ span{
   margin-left : 0.5rem;
 }
 
+.highlightText{
+  border-bottom : 3px solid var(--yellow);
+}
+
 .clicked{
-  color: var(--yellow);
+  color: var(--green);
   font-size : 1.5rem;
 }

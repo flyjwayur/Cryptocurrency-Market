@@ -10,12 +10,15 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
 
   let sortIconUp = (sortOrder === true) ? classes.clicked : "" ;
   let sortIconDown = (sortOrder === false) ? classes.clicked : "" ;
+  let hightlightRank = (sortType === "rank") ? classes.highlightText : "";
+  let hightlightName = (sortType === "name") ? classes.highlightText : "";
+  let hightlightPrice = (sortType === "price") ? classes.highlightText : "";
  
   return (
     <div className={classes.coinTitleDiv}>
       <button 
         onClick={() => handleClickTypeSort("rank", !sortOrder)}
-        className={[classes.titleBtnStyle, classes.infoRank].join(" ")}
+        className={[classes.titleBtnStyle, classes.infoRank, hightlightRank].join(" ")}
       > <span>Rank</span>
       {(sortType === "rank") ? 
       (<div className={classes.upDownIcon}><FontAwesomeIcon className={[classes.iconStyle, sortIconUp].join(' ')} icon = {faSortUp} /><FontAwesomeIcon className={[classes.iconStyle, sortIconDown].join(' ')} icon = {faSortDown} /></div>):
@@ -24,7 +27,7 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
       <span>|</span>
       <button
         onClick={() => handleClickTypeSort("name", !sortOrder)}
-        className={[classes.titleBtnStyle, classes.infoName].join(" ")}
+        className={[classes.titleBtnStyle, classes.infoName, hightlightName].join(" ")}
       >
         <span>Name</span>
         {(sortType === "name") ? 
@@ -34,7 +37,7 @@ const CoinsInfoTitle = ({ sortOrder, sortType, handleClickTypeSort }) => {
       <span>|</span>
       <button
         onClick={() => handleClickTypeSort("price", !sortOrder)}
-        className={[classes.titleBtnStyle, classes.infoPrice].join(" ")}
+        className={[classes.titleBtnStyle, classes.infoPrice, hightlightPrice].join(" ")}
       >
         <span>Price</span>
         {(sortType === "price") ? 

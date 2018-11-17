@@ -10,6 +10,7 @@ import {
   giveCommaEverythreeDigits
 } from "../../Libraries/methods";
 import CryptoIcon from "react-webfont-cryptocoins";
+import Spinner from '../UI/Spinner/Spinner';
 
 const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
   const displayPlusOrMinusStyle = dataValue => {
@@ -105,10 +106,14 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType }) => {
         return <div>No results!</div>;
       }
     } else {
-      return <div>Loading...</div>;
+      return <Spinner />;
     }
   };
-  return <div className={classes.coinOuterWrapper}>{displayCoins()}</div>;
+  return (
+    <div className={classes.coinOuterWrapper}>
+      {displayCoins()}
+    </div>
+  )
 };
 
 export default CoinsInfo;
