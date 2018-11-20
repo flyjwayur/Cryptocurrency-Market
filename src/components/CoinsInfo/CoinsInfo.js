@@ -117,7 +117,7 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType, handleClickTypeSort
           </div>
         );
       } else {
-        return <div>No results!</div>;
+        return <div className={classes.noResult}>No results *^-^*</div>;
       }
     } else {
       return <Spinner />;

@@ -134,3 +134,15 @@
     flex: 0.5;
   }
 }
+
+.noResult{
+  text-align : center;
+  font-size : 3rem;
+  color : var(--green);
+  background-color : var(--light-grey);
+  border-radius : 20px;
+  width : 10em;
+  margin : 5rem auto;
+  padding : 3rem;
+  font-family: var(--font-content);
+}
