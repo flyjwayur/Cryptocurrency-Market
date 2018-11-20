@@ -111,7 +111,9 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType, handleClickTypeSort
               sortOrder={sortOrder}
               sortType={sortType}
             />
+            <div className={classes.coinOuterWrapper}>
             {coinsDisplay}
+            </div>
           </div>
         );
       } else {
@@ -121,7 +123,7 @@ const CoinsInfo = ({ coins, searchWord, sortOrder, sortType, handleClickTypeSort
       return <Spinner />;
     }
   };
-  return <div className={classes.coinOuterWrapper}>{displayCoins()}</div>;
+  return <div>{displayCoins()}</div>;
 };
 
 export default CoinsInfo;
