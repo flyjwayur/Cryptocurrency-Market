@@ -15,7 +15,7 @@ Here is a cryptocurrency market which provides search and sort cryptocurrency fu
 ## 2. Implementation with React
 
 - Create different components (container and presentational components)
-- Fetch coin data from API in componentDidMount(one of Lifecycle).
+- Fetch coin data from [API](https://api.coinmarketcap.com/v1/ticker/?limit=500)
 - Display spinner when data is loading.
 - Display the filtered, sorted result.
 - If there is no result, display no result.
